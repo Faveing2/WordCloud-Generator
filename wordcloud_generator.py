@@ -8,11 +8,16 @@ import pandas
 
 #### Documentation for Worldcloud, https://github.com/amueller/word_cloud/tree/main
 
-FILEPATH = "Perceptions and Portrayals of Scientists and Engineers in Media (Responses) - Word Cloud People.csv"
+FILEPATH = "/Users/matthewpearson/Downloads/Perceptions and Portrayals of Scientists and Engineers in Media (Responses) - Word Cloud People (1).csv"
 USE_COLOR = True
 SCALING = .5
 
-TRANSPARENT = False
+MAX_FONT_SIZE = 60
+
+WIDTH = 800
+HEIGHT = 800
+
+TRANSPARENT = True
 BACKGROUND = "White"
 MODE = "RGB"
 
@@ -48,7 +53,7 @@ for index, person in enumerate(data_people["Name"]):
 ### Generate the wordcloud
 
 
-wc = WordCloud(background_color=BACKGROUND,mode=MODE, width=1000, height=1000, max_words=len(word_frequencies), relative_scaling=SCALING)
+wc = WordCloud(max_font_size=MAX_FONT_SIZE, background_color=BACKGROUND,mode=MODE, width=WIDTH, height=HEIGHT, max_words=len(word_frequencies), relative_scaling=SCALING)
 wc.generate_from_frequencies(word_frequencies)
 
 if USE_COLOR:
